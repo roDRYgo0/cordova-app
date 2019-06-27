@@ -1,37 +1,8 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
   <head>
-    <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"
-    />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"/>
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover"/>
@@ -50,23 +21,27 @@
         position: relative !important;
       }
     </style>
-    <title>Hello World</title>
+    <title>App work</title>
   </head>
   <body>
+
+
     <!-- jquery mobile page 1 -->
     <div data-role="page" id="page1">
-        <div data-role="header">
-            <h1>Page 1</h1>
+        <div data-role="header" data-position="inline" style="height: 45px" data-theme="b">
+            <a href="#sideBar1" data-icon="bars">Menu</a>
+            <h1>Temperatura</h1>
+            <a href="#sideBar2" data-icon="bars">Menu</a>
         </div>
         <div data-role="panel" data-theme="none" id="sideBar1"  class="sideBar">
-            <ul class="nav sidebar-nav">
+            <ul id="left" class="nav sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
                         CORDOVA
                     </a>
                 </li>
                 <li>
-                    <a href="#page1">Temperatura</a>
+                    <a href="#page2">Temperatura</a>
                 </li>
                 <li>
                     <a href="#page2">Descuento</a>
@@ -81,7 +56,7 @@
                     <a href="#page5">Áre y perimetro</a>
                 </li>
                 <li>
-                    <a href="#pag6">Calculadora</a>
+                    <a href="#page6">Calculadora</a>
                 </li>
                 <li>
                     <a href="#page7">Precio boleto</a>
@@ -98,7 +73,7 @@
             </ul>
         </div>
         <div data-role="panel" data-theme="none" id="sideBar2"  class="sideBar" data-position="right">
-            <ul class="nav sidebar-nav">
+            <ul id="right" class="nav sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
                         CORDOVA
@@ -139,9 +114,16 @@
         <!-- /panel -->
 
         <div role="main" class="ui-content">
-            <p>Page 1 content goes here</p>
-            <a href="#sideBar1">Side bar</a>
-            <a href="#sideBar2">Side bar</a>
+            <form>
+                <div class="form-group">
+                    <label for="fahrenheit">Fahrenheit</label>
+                    <input type="number" class="form-control" id="fahrenheit" aria-describedby="faHep" placeholder="Ingrese temperatura">
+                    <small id="faHep" class="form-text text-muted">Ingrese la temperatura que desea convertir.</small>
+                </div>
+
+                <label id="celcious" class="form-check-label font-weight-bold">Celsius: º</label>
+
+            </form>
         </div>
         <!-- end of page 1 content -->
 
@@ -152,24 +134,859 @@
     </div>
     <!-- end page 1 -->
 
+
+
     <!-- jquery mobile page 2 -->
     <div data-role="page" id="page2">
-        <div data-role="header">
-            <h1>Page 2</h1>
-        </div>
-
-        <div role="main" class="ui-content">
-            <h4>Page 2 content goes here</h4>
-            <a href="#page1">Goto page1</a>
-        </div>
-        <!-- end of page 2 content -->
-
-        <div data-role="footer" data-position="fixed">
-            <h4>Page 2 Footer</h4>
-        </div>
-      <!-- end page 2 footer -->
+            <div data-role="header" data-position="inline" style="height: 45px" data-theme="b">
+                <a href="#sideBar1" data-icon="bars">Menu</a>
+                <h1>Descuento</h1>
+                <a href="#sideBar2" data-icon="bars">Menu</a>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar1"  class="sideBar">
+                <ul id="left" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page2">Temperatura</a>
+                    </li>
+                    <li>
+                        <a href="#page2">Descuento</a>
+                    </li>
+                    <li>
+                        <a href="#page3">Nota final</a>
+                    </li>
+                    <li>
+                        <a href="#page4">Inversión</a>
+                    </li>
+                    <li>
+                        <a href="#page5">Áre y perimetro</a>
+                    </li>
+                    <li>
+                        <a href="#page6">Calculadora</a>
+                    </li>
+                    <li>
+                        <a href="#page7">Precio boleto</a>
+                    </li>
+                    <li>
+                        <a href="#page8">Incremento salario</a>
+                    </li>
+                    <li>
+                        <a href="#page9">Tipo triángulo</a>
+                    </li>
+                    <li>
+                        <a href="#page10">Llantría</a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar2"  class="sideBar" data-position="right">
+                <ul id="right" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page11">Salario en gobierno</a>
+                    </li>
+                    <li>
+                        <a href="#page12">Sumatoria numeros naturales</a>
+                    </li>
+                    <li>
+                        <a href="#page13">Promedio de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page14">Comparación de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page15">Rango de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page16">Frecuancia de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page17">Pares, impares o nulos</a>
+                    </li>
+                    <li>
+                        <a href="#page18">Becas al extrangero</a>
+                    </li>
+                    <li>
+                        <a href="#page19">La vaquita feliz</a>
+                    </li>
+                    <li>
+                        <a href="#page20">English for us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /panel -->
+    
+            <div role="main" class="ui-content">
+                <form>
+                    <div class="form-group">
+                        <label for="sueldo">Sueldo bruto</label>
+                        <input id="sbruto"  type="number" class="form-control" placeholder="Ingrese su sueldo">
+                        <small class="form-text text-muted">Renta 10%</small>
+                        <small class="form-text text-muted">AFP 6%</small>
+                        <small class="form-text text-muted">ISSS 3%</small>
+                    </div>
+    
+                    <label id="sneto" class="form-check-label font-weight-bold">Sueldo neto: $</label>
+    
+                </form>
+            </div>
+            <!-- end of page 1 content -->
+    
+            <div data-role="footer" data-position="fixed">
+                <h4>Page 1 Footer</h4>
+            </div>
+          <!-- end page 1 footer -->
     </div>
-    <!-- end page 2 -->
+    <!-- end page 1 -->
+
+
+    <!-- jquery mobile page 3 -->
+    <div data-role="page" id="page3">
+            <div data-role="header" data-position="inline" style="height: 45px" data-theme="b">
+                <a href="#sideBar1" data-icon="bars">Menu</a>
+                <h1>Nota final</h1>
+                <a href="#sideBar2" data-icon="bars">Menu</a>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar1"  class="sideBar">
+                <ul id="left" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page2">Temperatura</a>
+                    </li>
+                    <li>
+                        <a href="#page2">Descuento</a>
+                    </li>
+                    <li>
+                        <a href="#page3">Nota final</a>
+                    </li>
+                    <li>
+                        <a href="#page4">Inversión</a>
+                    </li>
+                    <li>
+                        <a href="#page5">Áre y perimetro</a>
+                    </li>
+                    <li>
+                        <a href="#page6">Calculadora</a>
+                    </li>
+                    <li>
+                        <a href="#page7">Precio boleto</a>
+                    </li>
+                    <li>
+                        <a href="#page8">Incremento salario</a>
+                    </li>
+                    <li>
+                        <a href="#page9">Tipo triángulo</a>
+                    </li>
+                    <li>
+                        <a href="#page10">Llantría</a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar2"  class="sideBar" data-position="right">
+                <ul id="right" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page11">Salario en gobierno</a>
+                    </li>
+                    <li>
+                        <a href="#page12">Sumatoria numeros naturales</a>
+                    </li>
+                    <li>
+                        <a href="#page13">Promedio de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page14">Comparación de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page15">Rango de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page16">Frecuancia de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page17">Pares, impares o nulos</a>
+                    </li>
+                    <li>
+                        <a href="#page18">Becas al extrangero</a>
+                    </li>
+                    <li>
+                        <a href="#page19">La vaquita feliz</a>
+                    </li>
+                    <li>
+                        <a href="#page20">English for us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /panel -->
+    
+            <div role="main" class="ui-content">
+                    <form id="nota_final">
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                            <label for="tarea">Tareas 20%</label>
+                            <input type="number" class="form-control" id="tarea" placeholder="Tareas" min="0" max="10" required>
+                            </div>
+                            <div class="form-group col-6">
+                            <label for="portafolio">Portafolio 25%</label>
+                            <input type="number" class="form-control" id="portafolio" placeholder="Portafolio" min="0" max="10" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                            <label for="laboratorio">Laboratorio 25%</label>
+                            <input type="number" class="form-control" id="laboratorio" placeholder="Laboratorio" min="0" max="10" required>
+                            </div>
+                            <div class="form-group col-6">
+                            <label for="examen">Examen 30%</label>
+                            <input type="number" class="form-control" id="examen" placeholder="Examen" min="0" max="10" required>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="row justify-content-center">
+                            <button type="reset" class="btn btn-secondary col-3">Resetear</button>
+                            <button type="submit" class="btn btn-secondary col-3">Calcular</button>
+                        </div>
+                    </form>
+                    <label id="nfinal" class="form-check-label font-weight-bold">Nota final: </label>
+            </div>
+            <!-- end of page 1 content -->
+    
+            <div data-role="footer" data-position="fixed">
+                <h4>Page 1 Footer</h4>
+            </div>
+          <!-- end page 1 footer -->
+    </div>
+    <!-- end page 3 -->
+
+
+    <!-- jquery mobile page 4 -->
+    <div data-role="page" id="page4">
+            <div data-role="header" data-position="inline" style="height: 45px" data-theme="b">
+                <a href="#sideBar1" data-icon="bars">Menu</a>
+                <h1>Inversión</h1>
+                <a href="#sideBar2" data-icon="bars">Menu</a>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar1"  class="sideBar">
+                <ul id="left" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page2">Temperatura</a>
+                    </li>
+                    <li>
+                        <a href="#page2">Descuento</a>
+                    </li>
+                    <li>
+                        <a href="#page3">Nota final</a>
+                    </li>
+                    <li>
+                        <a href="#page4">Inversión</a>
+                    </li>
+                    <li>
+                        <a href="#page5">Áre y perimetro</a>
+                    </li>
+                    <li>
+                        <a href="#page6">Calculadora</a>
+                    </li>
+                    <li>
+                        <a href="#page7">Precio boleto</a>
+                    </li>
+                    <li>
+                        <a href="#page8">Incremento salario</a>
+                    </li>
+                    <li>
+                        <a href="#page9">Tipo triángulo</a>
+                    </li>
+                    <li>
+                        <a href="#page10">Llantría</a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar2"  class="sideBar" data-position="right">
+                <ul id="right" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page11">Salario en gobierno</a>
+                    </li>
+                    <li>
+                        <a href="#page12">Sumatoria numeros naturales</a>
+                    </li>
+                    <li>
+                        <a href="#page13">Promedio de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page14">Comparación de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page15">Rango de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page16">Frecuancia de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page17">Pares, impares o nulos</a>
+                    </li>
+                    <li>
+                        <a href="#page18">Becas al extrangero</a>
+                    </li>
+                    <li>
+                        <a href="#page19">La vaquita feliz</a>
+                    </li>
+                    <li>
+                        <a href="#page20">English for us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /panel -->
+    
+            <div role="main" class="ui-content">
+                    <form id="inversion">
+                        <div class="form-row">
+                            <div class="form-group col-12">
+                                <label for="persona1">Persona 1</label>
+                                <input type="number" class="form-control" id="persona1" placeholder="Inversión" min="0" required>
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="persona2">Persona 2</label>
+                                <input type="number" class="form-control" id="persona2" placeholder="Inversión" min="0" required>
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="persona3">Persona 3</label>
+                                <input type="number" class="form-control" id="persona3" placeholder="Inversión" min="0" required>
+                            </div>
+                        </div>
+                       
+                        <div class="row justify-content-center">
+                            <button type="reset" class="btn btn-secondary col-3">Resetear</button>
+                            <button type="submit" class="btn btn-secondary col-3">Calcular</button>
+                        </div>
+                    </form>
+                    <label id="ifinal" class="form-check-label font-weight-bold">Inversión final: </label>
+                    <label id="pp1" class="form-check-label ">Porcentaje persona 1: </label>
+                    <label id="pp2" class="form-check-label ">Porcentaje persona 2: </label>
+                    <label id="pp3" class="form-check-label ">Porcentaje persona 3: </label>
+            </div>
+            <!-- end of page 1 content -->
+    
+            <div data-role="footer" data-position="fixed">
+                <h4>Page 1 Footer</h4>
+            </div>
+          <!-- end page 1 footer -->
+    </div>
+    <!-- end page 4 -->
+
+
+    <!-- jquery mobile page 5 -->
+    <div data-role="page" id="page5">
+            <div data-role="header" data-position="inline" style="height: 45px" data-theme="b">
+                <a href="#sideBar1" data-icon="bars">Menu</a>
+                <h1>Inversión</h1>
+                <a href="#sideBar2" data-icon="bars">Menu</a>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar1"  class="sideBar">
+                <ul id="left" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page2">Temperatura</a>
+                    </li>
+                    <li>
+                        <a href="#page2">Descuento</a>
+                    </li>
+                    <li>
+                        <a href="#page3">Nota final</a>
+                    </li>
+                    <li>
+                        <a href="#page4">Inversión</a>
+                    </li>
+                    <li>
+                        <a href="#page5">Áre y perimetro</a>
+                    </li>
+                    <li>
+                        <a href="#page6">Calculadora</a>
+                    </li>
+                    <li>
+                        <a href="#page7">Precio boleto</a>
+                    </li>
+                    <li>
+                        <a href="#page8">Incremento salario</a>
+                    </li>
+                    <li>
+                        <a href="#page9">Tipo triángulo</a>
+                    </li>
+                    <li>
+                        <a href="#page10">Llantría</a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar2"  class="sideBar" data-position="right">
+                <ul id="right" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page11">Salario en gobierno</a>
+                    </li>
+                    <li>
+                        <a href="#page12">Sumatoria numeros naturales</a>
+                    </li>
+                    <li>
+                        <a href="#page13">Promedio de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page14">Comparación de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page15">Rango de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page16">Frecuancia de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page17">Pares, impares o nulos</a>
+                    </li>
+                    <li>
+                        <a href="#page18">Becas al extrangero</a>
+                    </li>
+                    <li>
+                        <a href="#page19">La vaquita feliz</a>
+                    </li>
+                    <li>
+                        <a href="#page20">English for us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /panel -->
+    
+            <div role="main" class="ui-content">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="persona1">Figuras geométricas</label>
+                        <select id="figura" class="form-control">
+                            <option value="null">Seleccionar</option>
+                            <option value="tri">Triangulo</option>
+                            <option value="cir">Circulo</option>
+                            <option value="tra">Trapecio</option>
+                            <option value="rom">Rombo </option>
+                        </select>
+                    </div>
+                </div>
+                <form id="area_perimetro">
+                    <br><br>
+                    <div id="content">
+                        
+                    </div>
+                </form>
+                <label id="area" class="form-check-label ">Area: </label>
+                <label id="perimetro" class="form-check-label ">Perimetro: </label>
+            </div>
+            <!-- end of page 1 content -->
+    
+            <div data-role="footer" data-position="fixed">
+                <h4>Page 1 Footer</h4>
+            </div>
+          <!-- end page 1 footer -->
+    </div>
+    <!-- end page 5 -->
+
+
+    <!-- jquery mobile page 6 -->
+    <div data-role="page" id="page6">
+            <div data-role="header" data-position="inline" style="height: 45px" data-theme="b">
+                <a href="#sideBar1" data-icon="bars">Menu</a>
+                <h1>Calculadora</h1>
+                <a href="#sideBar2" data-icon="bars">Menu</a>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar1"  class="sideBar">
+                <ul id="left" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page2">Temperatura</a>
+                    </li>
+                    <li>
+                        <a href="#page2">Descuento</a>
+                    </li>
+                    <li>
+                        <a href="#page3">Nota final</a>
+                    </li>
+                    <li>
+                        <a href="#page4">Inversión</a>
+                    </li>
+                    <li>
+                        <a href="#page5">Áre y perimetro</a>
+                    </li>
+                    <li>
+                        <a href="#page6">Calculadora</a>
+                    </li>
+                    <li>
+                        <a href="#page7">Precio boleto</a>
+                    </li>
+                    <li>
+                        <a href="#page8">Incremento salario</a>
+                    </li>
+                    <li>
+                        <a href="#page9">Tipo triángulo</a>
+                    </li>
+                    <li>
+                        <a href="#page10">Llantría</a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar2"  class="sideBar" data-position="right">
+                <ul id="right" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page11">Salario en gobierno</a>
+                    </li>
+                    <li>
+                        <a href="#page12">Sumatoria numeros naturales</a>
+                    </li>
+                    <li>
+                        <a href="#page13">Promedio de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page14">Comparación de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page15">Rango de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page16">Frecuancia de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page17">Pares, impares o nulos</a>
+                    </li>
+                    <li>
+                        <a href="#page18">Becas al extrangero</a>
+                    </li>
+                    <li>
+                        <a href="#page19">La vaquita feliz</a>
+                    </li>
+                    <li>
+                        <a href="#page20">English for us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /panel -->
+    
+            <div role="main" class="ui-content">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="persona1">Operación</label>
+                        <select id="operacion" class="form-control">
+                            <option value="suma">Suma</option>
+                            <option value="resta">Resta</option>
+                            <option value="multi">Multiplicación</option>
+                            <option value="divi">Divición</option>
+                            <option value="modulo">Módulo</option>
+                            <option value="pote">Potencia</option>
+                            <option value="cuadrada">Raíz cuadrada</option>
+                            <option value="cubica">Raíz cubica</option>
+                        </select>
+                    </div>
+                </div>
+                <form id="calcu">
+                    <br><br>
+                    <div id="content">
+                        <div class="form-row justify-content-center">
+                        <div class="col-6">
+                            <label id="lab1" for="num1">Número 1</label>
+                            <input type="number" class="form-control" id="num1"  required>                            
+                        </div>
+                        <div class="col-6">
+                            <label id="lab2" for="num2">Número 2</label>
+                            <input type="number" class="form-control" id="num2" required>                            
+                        </div>
+                        </div>
+                        <br><br>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-secondary col-5">Calcular</button>
+                        </div>
+                    </div>
+                </form>
+                <label id="rescalc" class="form-check-label font-weight-bold">Resultado: </label>
+            </div>
+            <!-- end of page 1 content -->
+    
+            <div data-role="footer" data-position="fixed">
+                <h4>Page 1 Footer</h4>
+            </div>
+          <!-- end page 1 footer -->
+    </div>
+    <!-- end page 6 -->
+
+
+    <!-- jquery mobile page 7 -->
+    <div data-role="page" id="page7">
+            <div data-role="header" data-position="inline" style="height: 45px" data-theme="b">
+                <a href="#sideBar1" data-icon="bars">Menu</a>
+                <h1>Precio boleto</h1>
+                <a href="#sideBar2" data-icon="bars">Menu</a>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar1"  class="sideBar">
+                <ul id="left" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page2">Temperatura</a>
+                    </li>
+                    <li>
+                        <a href="#page2">Descuento</a>
+                    </li>
+                    <li>
+                        <a href="#page3">Nota final</a>
+                    </li>
+                    <li>
+                        <a href="#page4">Inversión</a>
+                    </li>
+                    <li>
+                        <a href="#page5">Áre y perimetro</a>
+                    </li>
+                    <li>
+                        <a href="#page6">Calculadora</a>
+                    </li>
+                    <li>
+                        <a href="#page7">Precio boleto</a>
+                    </li>
+                    <li>
+                        <a href="#page8">Incremento salario</a>
+                    </li>
+                    <li>
+                        <a href="#page9">Tipo triángulo</a>
+                    </li>
+                    <li>
+                        <a href="#page10">Llantría</a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar2"  class="sideBar" data-position="right">
+                <ul id="right" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page11">Salario en gobierno</a>
+                    </li>
+                    <li>
+                        <a href="#page12">Sumatoria numeros naturales</a>
+                    </li>
+                    <li>
+                        <a href="#page13">Promedio de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page14">Comparación de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page15">Rango de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page16">Frecuancia de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page17">Pares, impares o nulos</a>
+                    </li>
+                    <li>
+                        <a href="#page18">Becas al extrangero</a>
+                    </li>
+                    <li>
+                        <a href="#page19">La vaquita feliz</a>
+                    </li>
+                    <li>
+                        <a href="#page20">English for us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /panel -->
+    
+            <div role="main" class="ui-content">
+                <form id="boleto">
+                    <br><br>
+                    <div id="content">
+                        <div class="form-row justify-content-center">
+                        <div class="col-6">
+                            <label for="dias">Número de dias</label>
+                            <input type="number" class="form-control" id="dias" placeholder="Número de dias" required>                            
+                        </div>
+                        <div class="col-6">
+                            <label for="distancia">Distancia</label>
+                            <input type="number" class="form-control" id="distancia" placeholder="Distancia" required>
+                            <small class="form-text text-muted">Ingrese la distancia en kilometros</small>
+                        </div>
+                        </div>
+                        <br><br>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-secondary col-5">Calcular</button>
+                        </div>
+                    </div>
+                </form>
+                <label id="preciob" class="form-check-label font-weight-bold">Precio de boleto: $</label>
+            </div>
+            <!-- end of page 1 content -->
+    
+            <div data-role="footer" data-position="fixed">
+                <h4>Page 1 Footer</h4>
+            </div>
+          <!-- end page 1 footer -->
+    </div>
+    <!-- end page 7 -->
+
+
+    <!-- jquery mobile page 8 -->
+    <div data-role="page" id="page8">
+            <div data-role="header" data-position="inline" style="height: 45px" data-theme="b">
+                <a href="#sideBar1" data-icon="bars">Menu</a>
+                <h1>Incremento de salario</h1>
+                <a href="#sideBar2" data-icon="bars">Menu</a>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar1"  class="sideBar">
+                <ul id="left" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page2">Temperatura</a>
+                    </li>
+                    <li>
+                        <a href="#page2">Descuento</a>
+                    </li>
+                    <li>
+                        <a href="#page3">Nota final</a>
+                    </li>
+                    <li>
+                        <a href="#page4">Inversión</a>
+                    </li>
+                    <li>
+                        <a href="#page5">Áre y perimetro</a>
+                    </li>
+                    <li>
+                        <a href="#page6">Calculadora</a>
+                    </li>
+                    <li>
+                        <a href="#page7">Precio boleto</a>
+                    </li>
+                    <li>
+                        <a href="#page8">Incremento salario</a>
+                    </li>
+                    <li>
+                        <a href="#page9">Tipo triángulo</a>
+                    </li>
+                    <li>
+                        <a href="#page10">Llantría</a>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="panel" data-theme="none" id="sideBar2"  class="sideBar" data-position="right">
+                <ul id="right" class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            CORDOVA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page11">Salario en gobierno</a>
+                    </li>
+                    <li>
+                        <a href="#page12">Sumatoria numeros naturales</a>
+                    </li>
+                    <li>
+                        <a href="#page13">Promedio de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page14">Comparación de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page15">Rango de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page16">Frecuancia de calificaciónes</a>
+                    </li>
+                    <li>
+                        <a href="#page17">Pares, impares o nulos</a>
+                    </li>
+                    <li>
+                        <a href="#page18">Becas al extrangero</a>
+                    </li>
+                    <li>
+                        <a href="#page19">La vaquita feliz</a>
+                    </li>
+                    <li>
+                        <a href="#page20">English for us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /panel -->
+    
+            <div role="main" class="ui-content">
+                <form id="salarios">
+                    <br><br>
+                    <div id="content">
+                        <div class="form-row justify-content-center">
+                        <div class="col-6">
+                            <label for="salario">Salario</label>
+                            <input type="number" class="form-control" id="salario" placeholder="Salario" required>                            
+                        </div>
+                        </div>
+                        <br><br>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-secondary col-5">Calcular</button>
+                        </div>
+                    </div>
+                </form>
+                <label id="nsalario" class="form-check-label font-weight-bold">Tu salario es de: $</label>
+                <label id="incremento" class="form-check-label font-weight-bold">Con un incremento de </label>
+            </div>
+            <!-- end of page 1 content -->
+    
+            <div data-role="footer" data-position="fixed">
+                <h4>Page 1 Footer</h4>
+            </div>
+          <!-- end page 1 footer -->
+    </div>
+    <!-- end page 8 -->
+
+
     <script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -182,5 +999,6 @@
     </script>
     <script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
   </body>
 </html>
